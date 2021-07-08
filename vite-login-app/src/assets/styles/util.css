@@ -1,0 +1,38 @@
+/* Utility classes */
+.center {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
+.q-mt-1 {
+  margin-top: 1rem;
+}
+
+.q-mb-1 {
+  margin-bottom: 1rem;
+}
+
+.q-ml-1 {
+  margin-left: 1rem;
+}
+
+.q-mr-1 {
+  margin-right: 1rem;
+}
+
+.q-mt-5 {
+  margin-top: 5rem;
+}
+
+.q-mb-5 {
+  margin-bottom: 5rem;
+}
+
+.q-ml-5 {
+  margin-left: 5rem;
+}
+
+.q-mr-5 {
+  margin-right: 5rem;
+}

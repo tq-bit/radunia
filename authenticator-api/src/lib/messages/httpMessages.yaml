@@ -1,0 +1,141 @@
+components:
+  schemas:
+    httpOperationSuccess:
+      properties:
+        status:
+          type: string
+          description: Describes a successful server operation
+          example: success
+        message:
+          type: string
+          description: Includes a message for the user to see that his operation was successful
+          example: OK
+    httpResourceCreated:
+      properties:
+        status:
+          type: string
+          description: Describes a successful server operation
+          example: success
+        message:
+          type: string
+          description: Includes a message for the user to see that his operation was successful
+          example: Item created
+    httpResourceUpdated:
+      properties:
+        status:
+          type: string
+          description: Describes a successful server operation
+          example: success
+        message:
+          type: string
+          description: Includes a message for the user to see that his operation was successful
+          example: Item updated
+    httpResourceDeleted:
+      properties:
+        status:
+          type: string
+          description: Describes a successful server operation
+          example: success
+        message:
+          type: string
+          description: Includes a message for the user to see that his operation was successful
+          example: Item deleted
+
+    userExists:
+      properties:
+        status:
+          type: string
+          description: Describes the type of error that occured during execution
+          example: 'client-error'
+        message:
+          type: string
+          description: Includes a message for the user to see why the request failed
+          example: The username is already taken, please choose another
+
+    invalidRequest:
+      properties:
+        status:
+          type: string
+          description: Describes the type of error that occured during execution
+          example: 'client-error'
+        message:
+          type: string
+          description: Includes a message for the user to see why the request failed
+          example: The username is already taken, please choose another
+
+    notAuthorizedResource:
+      properties:
+        status:
+          type: string
+          description: Describes the type of error that occured during execution
+          example: 'not-authorized'
+        message:
+          type: string
+          description: Includes a message for the user to see why the request failed
+          example: You are not permitted to access this resource
+
+    notAuthorizedAction:
+      properties:
+        status:
+          type: string
+          description: Describes the type of error that occured during execution
+          example: 'not-authorized'
+        message:
+          type: string
+          description: Includes a message for the user to see why the request failed
+          example: You are not permitted to perform this operation
+
+    missingAuthHeaders:
+      properties:
+        status:
+          type: string
+          description: Describes the type of error that occured during execution
+          example: 'client-error'
+        message:
+          type: string
+          description: Includes a message for the user to see why the request failed
+          example: The request did not contain a valid authentication token
+
+    missingRequestBody:
+      properties:
+        status:
+          type: string
+          description: Describes the type of error that occured during execution
+          example: 'client-error'
+        message:
+          type: string
+          description: Includes a message for the user to see why the request failed
+          example: The request did not contain a body
+
+    authNotFound:
+      properties:
+        status:
+          type: string
+          description: Describes the type of error that occured during execution
+          example: 'not-found'
+        message:
+          type: string
+          description: Includes a message for the user to see why the request failed
+          example: User - password combination not found
+
+    itemNotFound:
+      properties:
+        status:
+          type: string
+          description: Describes the type of error that occured during execution
+          example: 'not-found'
+        message:
+          type: string
+          description: Includes a message for the user to see why the request failed
+          example: This item cannot be found
+
+    serverError:
+      properties:
+        status:
+          type: string
+          description: Describes the type of error that occured during execution
+          example: 'internal-server-error'
+        message:
+          type: string
+          description: Includes a message for the user to see why the request failed
+          example: An unexpected error has occured, please try again later

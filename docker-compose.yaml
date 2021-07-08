@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  mongodb:
+    image: "mongo"
+    volumes:
+      - db_data:/data/db
+
+  authenticator-api:
+    build: ./authenticator-api
+    ports:
+      - "3001:3001"
+    env_file:
+      ./authenticator-api/.env
+    depends_on:
+      - mongodb
+
+  login-app:
+    build: ./vite-login-app
+    ports:
+      - "80:80"
+    depends_on:
+      - authenticator-api
+
+volumes:
+  db_data:

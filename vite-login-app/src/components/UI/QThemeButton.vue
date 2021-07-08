@@ -1,0 +1,113 @@
+<template>
+  <div>
+    <input
+      @change="toggleTheme"
+      :id="uuid"
+      type="checkbox"
+      class="q-switch-checkbox"
+    />
+    <label class="q-switch-label" :for="uuid">
+      <span>🌙</span>
+      <span>☀️</span>
+      <div
+        class="q-toggle"
+        :class="{ 'q-toggle-checked': userTheme === 'dark-theme' }"
+      ></div>
+    </label>
+  </div>
+</template>
+
+<script>
+import { v4 as uuidv4 } from "uuid";
+
+export default {
+  setup() {
+    const uuid = uuidv4();
+    return { uuid };
+  },
+  props: {
+    initWithPreference: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+  },
+  mounted() {
+    if (this.initWithPreference) {
+      const initUserTheme = this.getMediaPreference();
+      this.setTheme(initUserTheme);
+    }
+  },
+  data() {
+    return {
+      userTheme: "",
+    };
+  },
+  methods: {
+    toggleTheme() {
+      const activeTheme = localStorage.getItem("user-theme");
+      if (activeTheme === "light-theme") {
+        this.setTheme("dark-theme");
+      } else {
+        this.setTheme("light-theme");
+      }
+    },
+
+    setTheme(theme) {
+      localStorage.setItem("user-theme", theme);
+      this.userTheme = theme;
+      document.documentElement.className = theme;
+    },
+
+    getMediaPreference() {
+      const hasDarkPreference = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+      if (hasDarkPreference) {
+        return "dark-theme";
+      } else {
+        return "light-theme";
+      }
+    },
+  },
+};
+</script>
+
+<style scoped>
+.q-switch-checkbox {
+  display: none;
+}
+
+.q-switch-label {
+  align-items: center;
+  background: var(--text-primary-color);
+  border: calc(var(--el-size-xs) * 0.025) solid var(--accent-color);
+  border-radius: var(--el-size-xs);
+  cursor: pointer;
+  display: flex;
+  font-size: calc(var(--el-size-xs) * 0.3);
+  height: calc(var(--el-size-xs) * 0.55);
+  position: relative;
+  padding: calc(var(--el-size-xs) * 0.1);
+  transition: background 0.5s ease;
+  justify-content: space-between;
+  width: var(--el-size-xs);
+  z-index: 1;
+}
+
+.q-switch-label .q-toggle {
+  position: absolute;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  top: calc(var(--el-size-xs) * 0.05);
+  left: calc(var(--el-size-xs) * 0.07);
+  height: calc(var(--el-size-xs) * 0.4);
+  width: calc(var(--el-size-xs) * 0.4);
+  transform: translateX(0);
+  transition: transform 0.3s ease, background-color 0.5s ease;
+}
+
+.q-toggle-checked {
+  transform: translateX(calc(var(--el-size-xs) * 0.4)) !important;
+}
+</style>

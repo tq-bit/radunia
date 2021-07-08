@@ -1,0 +1,272 @@
+components:
+  schemas:
+    AuthForm:
+      type: object
+      properties:
+        userName:
+          type: string
+          description: The username of the user who is to be logged in
+          example: "Jane Doe"
+        password:
+          type: string
+          description: The non encrypted password to identify and login a user
+          example: "supersecret123"
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+/api/v1/auth/authenticate:
+  post:
+    summary: Authenticate a user and hand out a json webtoken the user can login with.
+    operationId: handleAuthenticateUser
+    tags: [Auth]
+    requestBody:
+      description: Allows a registered user to login using their user credentials `username` and `password`.
+      required: true,
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            $ref: "#/components/schemas/AuthForm"
+        application/json:
+          schema:
+            $ref: "#/components/schemas/AuthForm"
+    responses:
+      200:
+        description: Returns the token to authenticate with - it be found within the header under `x-api-token`
+        headers:
+          x-auth-token:
+            description: The Json Webtoken a user can use to login with his account data
+            schema:
+              type: string
+      400:
+        description: This exception occurs if the login payload is missing
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/missingRequestBody"
+      404:
+        description: This exception occurs if a user-password combination is not found
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/authNotFound"
+      500:
+        description: This exception occurs during a server error.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/serverError"
+
+/api/v1/auth/refresh:
+  post:
+    security:
+      - bearerAuth: []
+    summary: Refresh a user's Json Webtoken by a given amount of time. A token can only be extended within 24 hours after the initial login. No further headers are necessary
+    operationId: handleExtendUserSession
+    tags: [Auth]
+    responses:
+      200:
+        description: Returns the new token -it be found within the header under `x-api-token`
+        headers:
+          x-auth-token:
+            description: The Json Webtoken a user can use to login with his account data
+            schema:
+              type: string
+      401:
+        description: This exception occurs in case the api token is not sent appropriately
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/missingAuthHeaders"
+      403:
+        description: This exception occurs in case the api token is older than 24 hours
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/notAuthorizedAction"
+      500:
+        description: This exception occurs during a server error.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/serverError"
+
+/api/v1/auth/login:
+  post:
+    summary: After authenticating, this route can be used to login. It requires a valid json webtoken inside the browser request
+    oprtationId: handleLoginUser
+    tags: [Auth]
+    parameters:
+      - in: header
+        name: x-auth-token
+        description: To successfully login, send the `x-auth-token` received from `api/v1/auth/authenticate`. The `x-api-token` received back can then be used for subsequent, personalized requests
+        example: Bearer <token>
+        schema:
+          type: string
+          description: The Json Webtoken received by /authenticate
+          required: true
+
+    responses:
+      200:
+        description: OK
+        headers:
+          x-api-token:
+            description: The Json Webtoken a user can use to authenticate and access his data
+            schema:
+              type: string
+      401:
+        description: This exception occurs in case the api token is not sent appropriately
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/missingAuthHeaders"
+      403:
+        description: This exception occurs in case the api token is malformed or expired
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/notAuthorizedAction"
+      500:
+        description: This exception occurs during a server error.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/serverError"
+
+/api/v1/auth/signup:
+  post:
+    summary: Create a new user. Before calling this api function, a successful authentication process should have been processed. By default, a new user will receive the role 'member'
+    operationId: handleCreateUser
+    tags: [Auth]
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    requestBody:
+      description: Creates a new user item.
+      required: true
+      content:
+        application/x-www-form-urlencoded:
+          schema:
+            type: object
+            properties:
+              userName:
+                type: string
+                description: The full name of the user
+                example: "Jane Doe"
+              password:
+                type: string
+                description: The unencrypted password of the user
+                example: "supersecret123"
+              userMail:
+                type: string
+                description: The email adress of the user
+                example: "Jane@doe.com"
+
+        application/json:
+          schema:
+            type: object
+            properties:
+              userName:
+                type: string
+                description: The full name of the user
+                example: "Jane Doe"
+              password:
+                type: string
+                description: The unencrypted password of the user
+                example: "supersecret123"
+              userMail:
+                type: string
+                description: The email adress of the user
+                example: "Jane@doe.com"
+    responses:
+      200:
+        description: Returns an `object` representing the created user
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+      500:
+        description: This exception occurs during a server error.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/serverError"
+
+/api/v1/auth/{userId}/upgrade:
+  put:
+    security:
+      - bearerAuth: []
+    summary: Upgrades a single user's authorization level. The request will fail if the user cannot be upgraded or downgraded
+    operationId: handleUpgradeUserByUserId
+    tags: [Auth]
+    parameters:
+      - in: path
+        name: userId
+        schema:
+          type: string
+        required: true
+        description: Unique ID of the user for which the entry data should be updated
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    responses:
+      200:
+        description: Returns an `object` describing the successful operation
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/httpOperationSuccess"
+      400:
+        description: This exception occurs when trying to perform an impossible action.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/invalidRequest"
+      500:
+        description: This exception occurs during a server error.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/serverError"
+
+/api/v1/auth/{userId}/downgrade:
+  put:
+    security:
+      - bearerAuth: []
+    summary: Downgrades a single user's authorization level. The request will fail if the user cannot be upgraded or downgraded
+    operationId: handleDowngradeUserByUserId
+    tags: [Auth]
+    parameters:
+      - in: path
+        name: userId
+        schema:
+          type: string
+        required: true
+        description: Unique ID of the user for which the entry data should be updated
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    responses:
+      200:
+        description: Returns an `object` describing the successful operation
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/httpOperationSuccess"
+      400:
+        description: This exception occurs when trying to perform an impossible action.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/invalidRequest"
+      500:
+        description: This exception occurs during a server error.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/serverError"
