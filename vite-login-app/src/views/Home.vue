@@ -38,6 +38,7 @@ export default {
   },
   data() {
     return {
+      urlSource: "https://github.com/tq-bit/radunia",
       homeHero: {
         heading: "🌇 Radunia",
         text: "A fullstack MVC webapp built with the MEVN - stack",
@@ -50,7 +51,7 @@ export default {
         },
         {
           title: "Check the source",
-          function: () => this.$router.push({ path: "/login" }),
+          function: () => window.open(this.urlSource),
         },
       ],
 
@@ -59,15 +60,30 @@ export default {
           title: "Welcome to Radunia",
           text: `
           <p>
-            You're looking at a project created by <a target="_blank" href="https://q-bit.me/about/">Tobias Quante</a>. It was built to
+            You're looking at a project created by <a target="_blank" href="https://blog.q-bit.me/about">Tobias Quante</a>. It was built to
             put together a few of the core concepts of a MEVN - application, developing vue apps with vite and containerize them up.
             You can create an account and fill in some personal information about yourself. Once that's done, your data can be
-            conveniently accessed from anywhere, using the app's own <a href="http://localhost:3001/v1/api-docs">OpenAPI Specification</a>.
+            conveniently accessed from anywhere, using the app's own <a href="http://${window.location.hostname}:3001/v1/api-docs/#/">OpenAPI Specification</a>.
           </p>
           <p>
             The base structure includes:
           </p>
           `,
+        },
+      ],
+
+      homeCards: [
+        {
+          title: "🎨  Layout, Forms & UI",
+          text: "The components-folder structure is kept lean. It contains some basic files to get started with and a lot of space for extensions.",
+        },
+        {
+          title: "🔐  Secured REST backend",
+          text: "Powered by Node.js and a MongoDB instance of your choice. A simple, yet secure, middleware protects closed resources.",
+        },
+        {
+          title: "📜  Docs & Docker",
+          text: "Radunia is rounded up by an OpenAPI specification and setup with docker, ready to be deployed to -and accessed from- anywhere",
         },
       ],
 
@@ -95,21 +111,6 @@ export default {
             Setting it up for yourself is as easy as cloning the git repos and following the .md file instructions <a href="#">Try it out</a>.
           </p>
           `,
-        },
-      ],
-
-      homeCards: [
-        {
-          title: "🎨  Layout, Forms & UI",
-          text: "The components-folder structure is kept lean. It contains some basic files to get started with and a lot of space for extensions.",
-        },
-        {
-          title: "🔐  Secured REST backend",
-          text: "Powered by Node.js and a MongoDB instance of your choice. A simple, yet secure, middleware protects closed resources.",
-        },
-        {
-          title: "📜  Docs & Docker",
-          text: "Radunia is rounded up by an OpenAPI specification and setup with docker, ready to be deployed to -and accessed from- anywhere",
         },
       ],
     };
