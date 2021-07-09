@@ -23,6 +23,21 @@ Then, change the `DB_HOST_ADMIN` variable in the .env file to a mongodb instance
 
 ## Docker setup
 
+The authenticator api requires a .env file to run. You can quickly set it up with this command:
+
+```
+echo "PORT=3001
+HOST=http://localhost
+NODE_ENV=development
+API_VERSION=/v1
+PATH_DOCS=/api-docs
+PATH_SPECS=/api-specs
+DB_HOST_ADMIN=mongodb
+
+AUTH_SECRET=12345+
+API_SECRET=12345" > ./authenticator-api/.env
+```
+
 Make sure you have the `docker-compose` binary installed. Then, in the proejct's root directory, run:
 
 ```shell
@@ -31,4 +46,4 @@ docker-compose up
 
 ## Demo link
 
-tbd
+... coming soon
