@@ -38,7 +38,7 @@ AUTH_SECRET=12345+
 API_SECRET=12345" > ./authenticator-api/.env
 ```
 
-Make sure you have the `docker-compose` binary installed. Then, in the proejct's root directory, run:
+Make sure you have the `docker-compose` binary installed. Then, in the project's root directory, run:
 
 ```shell
 docker-compose up
