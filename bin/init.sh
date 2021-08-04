@@ -16,6 +16,7 @@ AUTH_SECRET=12345+
 API_SECRET=12345" > .env
 
 echo "Api: Installing node modules ..."
+cd ./authenticator-api
 npm install
 
 echo "Api: Setup comple. "
