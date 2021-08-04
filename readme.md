@@ -38,6 +38,10 @@ AUTH_SECRET=12345+
 API_SECRET=12345" > ./authenticator-api/.env
 ```
 
+You can alternatively use the `init.sh` file in ./bin
+
+> Note that it will throw an error if you do not have node.js installed on your local machine.
+
 Make sure you have the `docker-compose` binary installed. Then, in the project's root directory, run:
 
 ```shell
