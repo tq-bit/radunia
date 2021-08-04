@@ -17,7 +17,7 @@ I've created radunia with reusability in mind. At a minimum, the Vue frontend so
 
 ## Local dev setup
 
-At the time writing this readme, I haven't yet seen the benefit of using live-code updates with docker, so you'll need a working verion of Node.js (v.14) on your mashine. For a quick setup, run the `init.sh` script in the bin folder.
+At the time writing this readme, I haven't yet seen the benefit of using live-code updates with docker. That means that you'll need a working verion of Node.js (v.14) on your machine. For a quick setup, run the `init.sh` script in the bin folder.
 
 Then, change the `DB_HOST_ADMIN` variable in the .env file to a mongodb instance of your choice. For a quick and painless setup in the cloud, visit https://www.mongodb.com/cloud/atlas
 
