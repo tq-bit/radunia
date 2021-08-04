@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Backend setup
-cd ../authenticator-api
+cd ./authenticator-api
 
 echo "Api: Creating environment file ..."
 echo "PORT=3001
@@ -16,7 +16,6 @@ AUTH_SECRET=12345+
 API_SECRET=12345" > .env
 
 echo "Api: Installing node modules ..."
-cd ./authenticator-api
 npm install
 
 echo "Api: Setup comple. "
