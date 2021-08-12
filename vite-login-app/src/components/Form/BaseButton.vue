@@ -68,7 +68,7 @@ export default {
 .q-button-base {
   border: none;
   border-radius: var(--gap-xs);
-  color: var(--bright-color);
+  color: var(--background-color-tartiary);
   cursor: pointer;
   font-size: var(--text-size-md);
   margin: var(--gap-xs) 0;
@@ -81,7 +81,7 @@ export default {
 .q-button-v-default {
   padding: var(--gap-sm) var(--gap-sm);
   font-size: var(--text-size-md);
-  background-color: var(--primary-color);
+  background-color: var(--accent-color-primary);
   font-weight: 600;
 }
 
@@ -93,7 +93,7 @@ export default {
 
 .q-button-v-link {
   background-color: transparent !important;
-  color: var(--primary-color) !important;
+  color: var(--accent-color-primary) !important;
 }
 
 .q-button-v-link:hover {
@@ -102,18 +102,18 @@ export default {
 
 /* Color classes */
 .q-button-c-primary {
-  background-color: var(--primary-color);
-  color: var(--bright-color);
+  background-color: var(--accent-color-primary);
+  color: var(--background-color-tartiary);
 }
 
 .q-button-c-secondary {
-  background-color: var(--secondary-color);
-  color: var(--bright-color);
+  background-color: var(--accent-color-secondary);
+  color: var(--background-color-tartiary);
 }
 
 .q-button-c-bright {
-  background-color: var(--bright-color);
-  color: var(--primary-color);
+  background-color: var(--background-color-tartiary);
+  color: var(--accent-color-primary);
 }
 
 /* Styles for the loader */
@@ -123,7 +123,7 @@ export default {
   width: var(--text-size-xl);
   height: var(--text-size-xl);
   border-radius: 50%;
-  border-top: 2px solid var(--bright-color);
+  border-top: 2px solid var(--background-color-tartiary);
   border-right: 2px solid transparent;
   animation: fullRotation 1s linear infinite;
 }

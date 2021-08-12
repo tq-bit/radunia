@@ -39,7 +39,7 @@ export default {
 
 <style scoped>
 .q-accordion-wrapper {
-  color: var(--text-primary-color);
+  color: var(--text-color-primary);
 }
 
 .q-accordion-wrapper:nth-last-child() {
@@ -49,10 +49,10 @@ export default {
 
 .q-accordion-header {
   width: 100%;
-  background-color: var(--bright-color);
+  background-color: var(--background-color-secondary);
   padding: var(--gap-lg);
   font-size: var(--text-size-xxl);
-  color: var(--text-primary-color);
+  color: var(--text-color-primary);
   text-align: left;
   border: none;
   cursor: pointer;
@@ -63,7 +63,7 @@ export default {
   border-top-right-radius: var(--gap-xs);
 }
 .q-accordion-body {
-  background-color: var(--background-color-secondary);
+  background-color: var(--background-color-tartiary);
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;

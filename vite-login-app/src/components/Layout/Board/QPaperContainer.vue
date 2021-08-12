@@ -39,7 +39,7 @@ export default {
 
 <style scoped>
 .q-container-paper {
-  background-color: var(--bright-color);
+  background-color: var(--background-color-tartiary);
   border-radius: var(--gap-xs);
   display: block;
   margin: auto;
@@ -50,7 +50,7 @@ export default {
 }
 
 .q-container-paper-header {
-  color: var(--primary-color);
+  color: var(--accent-color-primary);
 }
 
 .q-container-paper-center {

@@ -46,13 +46,13 @@ export default {
   margin: 0 0 .2em;
   transition: transform var(--duration-quick) ease-in-out;
   border-radius: .05em;
-  background: var(--primary-color);
+  background: var(--accent-color-primary);
 }
 
 .hamburger.active:before,
 .hamburger.active .icon,
 .hamburger.active:after {
-  background: var(--primary-color);
+  background: var(--accent-color-primary);
 }
 
 .hamburger.hamburger-cancel.active .icon {

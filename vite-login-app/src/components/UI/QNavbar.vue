@@ -74,8 +74,8 @@ export default {
 .q-navbar {
   display: flex;
   justify-content: space-between;
-  color: var(--primary-color);
-  background-color: var(--accent-color);
+  color: var(--accent-color-primary);
+  background-color: var(--black-color);
   padding: var(--gap-xl);
 }
 

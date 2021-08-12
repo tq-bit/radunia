@@ -28,8 +28,8 @@ export default {
 <style scoped>
 .q-card {
   margin: var(--gap-md);
-  background-color: var(--bright-color);
-  border-top: 3px solid var(--primary-color);
+  background-color: var(--background-color-tartiary);
+  border-top: 3px solid var(--accent-color-primary);
   border-radius: var(--gap-xs);
   transition: var(--duration-quick) all;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 6px;

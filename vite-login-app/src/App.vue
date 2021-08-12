@@ -106,36 +106,41 @@ export default {
 @import "./assets/styles/animations.css";
 
 :root.dark-theme {
+  /* Background colors */
   --background-color-primary: #1e1e1e;
-  --background-color-secondary: #2d2d30;
-  --primary-color: rgb(227, 157, 58);
-  --secondary-color: rgb(46, 84, 204);
-  --accent-color: #1e1e1e;
-  --primary-blur: rgba(227, 157, 58, 0.7);
-  --secondary-blur: rgba(46, 84, 204, 0.7);
-  --accent-blur: rgb(41, 32, 26, 0.8);
-  --bright-color: #252526;
+  --background-color-tartiary: #2d2d30;
+  --background-color-secondary: #252526;
+
+  /* Text colors */
+  --text-color-primary: #ddd;
+  --text-color-secondary: #eee;
+
+  /* Accent colors */
   --success-color: #00a300;
   --error-color: #b91d47;
   --grey-color: #3f3f3f;
-  --text-primary-color: #ddd;
-  --text-secondary-color: #eee;
 }
 
 :root {
-  --background-color-primary: #fafafa;
-  --primary-color: rgb(227, 157, 58);
-  --secondary-color: rgb(46, 84, 204);
-  --accent-color: #29201a;
-  --primary-blur: rgba(227, 157, 58, 0.7);
-  --secondary-blur: rgba(46, 84, 204, 0.7);
-  --accent-blur: rgb(41, 32, 26, 0.8);
-  --bright-color: #fefefe;
+  /* Background colors */
+  --background-color-primary: #eee;
+  --background-color-secondary: #f5f5f5;
+  --background-color-tartiary: #fefefe;
+
+  /* Accent colors */
+  --accent-color-primary: rgb(227, 157, 58);
+  --accent-color-secondary: rgb(46, 84, 204);
+  --accent-color-blur-primary: rgba(227, 157, 58, 0.7);
+  --accent-color-blur-secondary: rgba(46, 84, 204, 0.7);
+
+  /* Text colors */
+  --text-color-primary: #222;
+  --text-color-secondary: #333;
+
+  --black-color: #29201a;
+  --grey-color: #cacaca;
   --success-color: #00a300;
   --error-color: #b91d47;
-  --grey-color: #cacaca;
-  --text-primary-color: #222;
-  --text-secondary-color: #333;
   --duration-quickest: 0.25s;
   --duration-quick: 0.5s;
   --duration-semi: 0.75s;
@@ -180,7 +185,7 @@ ul {
 }
 
 li {
-  color: var(--text-primary-color);
+  color: var(--text-color-primary);
   padding: var(--gap-xs) var(--gap-md);
 }
 
@@ -190,19 +195,19 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--text-primary-color);
+  color: var(--text-color-primary);
   margin: var(--gap-xl) 0;
 }
 
 p {
-  color: var(--text-secondary-color);
+  color: var(--text-color-secondary);
   margin: var(--gap-md) 0;
   font-size: var(--text-size-lg);
   line-height: var(--gap-max);
 }
 
 a {
-  color: var(--primary-color);
+  color: var(--accent-color-primary);
   font-weight: 600;
   text-decoration: none;
   position: relative;
@@ -227,6 +232,6 @@ a:before {
   content: "";
   width: 0;
   height: var(--gap-xxs);
-  background-color: var(--primary-color);
+  background-color: var(--accent-color-primary);
 }
 </style>

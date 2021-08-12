@@ -36,14 +36,14 @@ export default {
   width: 100%;
   border-radius: var(--gap-xs);
   transition: var(--duration-quick) all;
-  background-color: var(--bright-color);
-  color: var(--primary-blur);
+  background-color: var(--background-color-tartiary);
+  color: var(--accent-color-blur-primary);
   border: var(--gap-tiny) solid var(--grey-color)
 }
 
 .q-user-card-filled {
-  background-color: var(--primary-blur);
-  color: var(--bright-color);
+  background-color: var(--accent-color-blur-primary);
+  color: var(--background-color-tartiary);
 }
 
 .q-user-card-header,

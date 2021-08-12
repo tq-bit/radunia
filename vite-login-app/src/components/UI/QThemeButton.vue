@@ -80,8 +80,8 @@ export default {
 
 .q-switch-label {
   align-items: center;
-  background: var(--text-primary-color);
-  border: calc(var(--el-size-xs) * 0.025) solid var(--accent-color);
+  background: var(--text-color-primary);
+  border: calc(var(--el-size-xs) * 0.025) solid var(--black-color);
   border-radius: var(--el-size-xs);
   cursor: pointer;
   display: flex;
@@ -97,7 +97,7 @@ export default {
 
 .q-switch-label .q-toggle {
   position: absolute;
-  background-color: var(--primary-color);
+  background-color: var(--accent-color-primary);
   border-radius: 50%;
   top: calc(var(--el-size-xs) * 0.05);
   left: calc(var(--el-size-xs) * 0.07);

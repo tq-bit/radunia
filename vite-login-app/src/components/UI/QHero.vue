@@ -48,12 +48,12 @@ export default {
 .q-hero-wrapper {
   background-image: linear-gradient(
     5deg,
-    var(--primary-blur),
-    var(--primary-color),
-    var(--primary-color),
-    var(--primary-blur)
+    var(--accent-color-blur-primary),
+    var(--accent-color-primary),
+    var(--accent-color-primary),
+    var(--accent-color-blur-primary)
   );
-  color: var(--accent-color);
+  color: var(--black-color);
   text-align: center;
   padding: var(--gap-xxl);
 }

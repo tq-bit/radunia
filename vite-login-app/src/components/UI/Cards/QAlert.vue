@@ -35,7 +35,7 @@ export default {
 
 <style scoped>
 .q-alert {
-  background-color: var(--primary-color);
+  background-color: var(--accent-color-primary);
   border-radius: var(--gap-xs);
   position: fixed;
   margin: auto;

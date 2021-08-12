@@ -41,7 +41,7 @@ export default {
 }
 
 .q-input-label {
-  color: var(--primary-color);
+  color: var(--accent-color-primary);
   font-size: var(--text-size-md);
   font-weight: 600;
   text-transform: uppercase;
@@ -49,8 +49,8 @@ export default {
 
 .q-textarea-base {
   background-color: transparent;
-  color: var(--text-primary-color);
-  caret-color: var(--text-primary-color);
+  color: var(--text-color-primary);
+  caret-color: var(--text-color-primary);
   border: none;
   border-bottom: var(--gap-xxs) solid transparent;
   margin-bottom: var(--gap-md);
@@ -59,6 +59,6 @@ export default {
 .q-textarea-base:focus {
   outline: none;
   transition: var(--duration-quickest);
-  border-bottom: var(--gap-xxs) solid var(--primary-color);
+  border-bottom: var(--gap-xxs) solid var(--accent-color-primary);
 }
 </style>

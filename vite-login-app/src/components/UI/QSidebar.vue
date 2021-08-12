@@ -95,7 +95,7 @@ export default {
 
 .q-sidebar-header {
   height: 20vh;
-  background-color: var(--accent-color);
+  background-color: var(--black-color);
   color: #fff;
   padding: var(--gap-sm) var(--gap-xl);
   display: flex;
@@ -132,7 +132,7 @@ export default {
 
 .q-router-link {
   cursor: pointer;
-  color: var(--text-primary-color);
+  color: var(--text-color-primary);
   padding: var(--gap-sm) var(--gap-md);
   font-weight: 600;
   font-size: var(--text-size-lg);
@@ -140,7 +140,7 @@ export default {
 }
 
 a.router-link-exact-active {
-  background-color: var(--primary-blur);
+  background-color: var(--accent-color-blur-primary);
 }
 
 .q-sidebar-footer {
