@@ -1,14 +1,16 @@
 <template>
-  <section :aria-expanded="isExpanded" class="q-accordion-body">
-    <slot />
-  </section>
-  <button
-    :class="{ expanded: isExpanded, collapsed: !isExpanded }"
-    @click="togglePanel"
-    class="q-accordion-button"
-  >
-    {{ title }}
-  </button>
+  <div :class="{ reverse: reversed, topside: !reversed }">
+    <button
+      :class="{ expanded: isExpanded, collapsed: !isExpanded }"
+      @click="togglePanel"
+      class="q-accordion-button"
+    >
+      {{ title }}
+    </button>
+    <section :aria-expanded="isExpanded" class="q-accordion-body">
+      <slot />
+    </section>
+  </div>
 </template>
 
 <script>
@@ -19,11 +21,12 @@ export default {
     return { isExpanded };
   },
   props: {
-    key: {
-      type: String,
+    reversed: {
+      type: Boolean,
       required: false,
-      default: 0,
+      default: false,
     },
+
     title: {
       type: String,
       required: true,
@@ -33,7 +36,7 @@ export default {
   methods: {
     togglePanel(ev) {
       this.isExpanded = !this.isExpanded;
-      const panel = ev.target.previousElementSibling;
+      const panel = ev.target.nextElementSibling;
 
       if (panel.style.maxHeight) {
         panel.style.maxHeight = null;
@@ -46,6 +49,16 @@ export default {
 </script>
 
 <style scoped>
+.topside {
+  display: flex;
+  flex-direction: column;
+}
+
+.reverse {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
 .q-accordion-button {
   width: 100%;
   background-color: var(--background-color-secondary);
@@ -68,16 +81,6 @@ export default {
   content: "+";
   transition: transform var(--duration-quickest);
   float: right;
-}
-
-.q-accordion-button:nth-child(1) {
-  border-top-left-radius: var(--gap-xs);
-  border-top-right-radius: var(--gap-xs);
-}
-
-.q-accordion-button:last-child {
-  border-bottom-left-radius: var(--gap-xs);
-  border-bottom-right-radius: var(--gap-xs);
 }
 
 .q-accordion-body {
