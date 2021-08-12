@@ -1,6 +1,6 @@
 <template>
   <div class="q-accordion-wrapper">
-    <header @click="togglePanels" class="q-accordion-header">
+    <header class="q-accordion-header">
       {{ header }}
     </header>
     <slot />
@@ -13,20 +13,6 @@ export default {
     header: {
       type: String,
       required: true,
-    },
-  },
-  methods: {
-    togglePanels(ev) {
-      const panelNodes =
-        ev.target.parentElement.querySelectorAll(".q-accordion-body");
-
-      panelNodes.forEach((panel) => {
-        if (panel.style.maxHeight) {
-          panel.style.maxHeight = null;
-        } else {
-          panel.style.maxHeight = panel.scrollHeight + "px";
-        }
-      });
     },
   },
 };

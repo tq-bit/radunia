@@ -1,14 +1,23 @@
 <template>
-  <section class="q-accordion-body">
+  <section :aria-expanded="isExpanded" class="q-accordion-body">
     <slot />
   </section>
-  <button @click.native="togglePanel" class="q-accordion-button">
+  <button
+    :class="{ expanded: isExpanded, collapsed: !isExpanded }"
+    @click="togglePanel"
+    class="q-accordion-button"
+  >
     {{ title }}
   </button>
 </template>
 
 <script>
+import { ref } from "vue";
 export default {
+  setup() {
+    const isExpanded = ref(false);
+    return { isExpanded };
+  },
   props: {
     key: {
       type: String,
@@ -23,7 +32,9 @@ export default {
 
   methods: {
     togglePanel(ev) {
+      this.isExpanded = !this.isExpanded;
       const panel = ev.target.previousElementSibling;
+
       if (panel.style.maxHeight) {
         panel.style.maxHeight = null;
       } else {
@@ -44,6 +55,19 @@ export default {
   text-align: left;
   border: none;
   cursor: pointer;
+}
+
+.expanded:after {
+  content: "+";
+  transition: transform var(--duration-quickest);
+  transform: rotate(45deg);
+  float: right;
+}
+
+.collapsed:after {
+  content: "+";
+  transition: transform var(--duration-quickest);
+  float: right;
 }
 
 .q-accordion-button:nth-child(1) {
