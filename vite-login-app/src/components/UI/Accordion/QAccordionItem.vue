@@ -1,7 +1,12 @@
 <template>
   <div :class="{ reverse: reversed, topside: !reversed }">
     <button
-      :class="{ expanded: isExpanded, collapsed: !isExpanded }"
+      :class="{
+        expanded: isExpanded,
+        collapsed: !isExpanded,
+        'q-rounded-top': roundedTop,
+        'q-rounded-bottom': roundedBottom,
+      }"
       @click="togglePanel"
       class="q-accordion-button"
     >
@@ -21,15 +26,29 @@ export default {
     return { isExpanded };
   },
   props: {
+    // Test properties
+    title: {
+      type: String,
+      required: true,
+    },
+
+    // Style properties
     reversed: {
       type: Boolean,
       required: false,
       default: false,
     },
 
-    title: {
-      type: String,
-      required: true,
+    roundedTop: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+
+    roundedBottom: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
   },
 
@@ -81,6 +100,16 @@ export default {
   content: "+";
   transition: transform var(--duration-quickest);
   float: right;
+}
+
+.q-rounded-top {
+  border-top-left-radius: var(--gap-xs);
+  border-top-right-radius: var(--gap-xs);
+}
+
+.q-rounded-bottom {
+  border-bottom-left-radius: var(--gap-xs);
+  border-bottom-right-radius: var(--gap-xs);
 }
 
 .q-accordion-body {
