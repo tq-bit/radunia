@@ -5,14 +5,18 @@
         expanded: isExpanded,
         collapsed: !isExpanded,
         'q-rounded-top': roundedTop,
-        'q-rounded-bottom': roundedBottom,
+        'q-rounded-bottom': roundedBottom && !isExpanded,
       }"
       @click="togglePanel"
       class="q-accordion-button"
     >
       {{ title }}
     </button>
-    <section :aria-expanded="isExpanded" class="q-accordion-body">
+    <section
+      :class="{ 'q-rounded-bottom': roundedBottom && isExpanded }"
+      :aria-expanded="isExpanded"
+      class="q-accordion-body"
+    >
       <slot />
     </section>
   </div>

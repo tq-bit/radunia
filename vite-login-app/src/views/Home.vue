@@ -1,6 +1,49 @@
 <template>
-  <div id="home">
-    <q-hero
+  <div
+    id="home"
+    style="
+      width: 50vw;
+      margin: auto;
+      padding-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    "
+  >
+    <q-accordion>
+      <q-accordion-item title="This is a header">
+        <p>
+          At vero eos et accusamus et iusto odio dignissimos ducimus qui
+          blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
+          et quas molestias excepturi sint occaecati cupiditate non provident,
+          similique sunt in culpa qui officia deserunt mollitia animi, id est
+          asperiores repellat.
+        </p> </q-accordion-item
+      ><q-accordion-item title="This is another header">
+        <p>
+          At vero eos et accusamus et iusto odio dignissimos ducimus qui
+          blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
+          et quas molestias excepturi sint occaecati cupiditate non provident,
+          similique sunt in culpa qui officia deserunt mollitia animi, id est
+          laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita
+          distinctio. Nam libero tempore, cum soluta nobis est eligendi optio
+          asperiores repellat.
+        </p> </q-accordion-item
+      ><q-accordion-item :rounded-bottom="true" title="This is a third header">
+        <p>
+          laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita
+          distinctio. Nam libero tempore, cum soluta nobis est eligendi optio
+          cumque nihil impedit quo minus id quod maxime placeat facere possimus,
+          omnis voluptas assumenda est, omnis dolor repellendus. Temporibus
+          autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe
+          eveniet ut et voluptates repudiandae sint et molestiae non recusandae.
+          Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis
+          voluptatibus maiores alias consequatur aut perferendis doloribus
+          asperiores repellat.
+        </p>
+      </q-accordion-item>
+    </q-accordion>
+    <!-- <q-hero
       :heading="homeHero.heading"
       :text="homeHero.text"
       :actions="homeActions"
@@ -18,12 +61,14 @@
         </template>
       </q-card>
     </q-grid-container>
-    <q-paper-container :content="homeContentDescription"> </q-paper-container>
+    <q-paper-container :content="homeContentDescription"> </q-paper-container> -->
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
+import QAccordion from "../components/UI/Accordion/QAccordion.vue";
+import QAccordionItem from "../components/UI/Accordion/QAccordionItem.vue";
 import QHero from "../components/UI/QHero.vue";
 import QGridContainer from "../components/Layout/Grid/QGridContainer.vue";
 import QPaperContainer from "../components/Layout/Board/QPaperContainer.vue";
@@ -31,6 +76,8 @@ import QCard from "../components/UI/Cards/QCard.vue";
 
 export default {
   components: {
+    QAccordion,
+    QAccordionItem,
     QHero,
     QGridContainer,
     QPaperContainer,
