@@ -7,12 +7,13 @@
         'q-rounded-top': roundedTop,
         'q-rounded-bottom': roundedBottom && !isExpanded,
       }"
-      @click="togglePanel"
+      @click="isExpanded = !isExpanded"
       class="q-accordion-button"
     >
       {{ title }}
     </button>
     <section
+      :id="panelId"
       :class="{ 'q-rounded-bottom': roundedBottom && isExpanded }"
       :aria-expanded="isExpanded"
       class="q-accordion-body"
@@ -23,11 +24,22 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, watch, onMounted } from "vue";
+import uuid from "../../../use/uuid";
 export default {
-  setup() {
-    const isExpanded = ref(false);
-    return { isExpanded };
+  setup({ expanded }) {
+    const panelId = uuid();
+    let isExpanded = ref(expanded);
+    const togglePanel = () => {
+      const panel = document.getElementById(panelId);
+      isExpanded.value
+        ? (panel.style.maxHeight = panel.scrollHeight + "px")
+        : (panel.style.maxHeight = null);
+    };
+
+    watch(isExpanded, () => togglePanel());
+    onMounted(() => togglePanel());
+    return { isExpanded, panelId };
   },
   props: {
     // Test properties
@@ -54,18 +66,11 @@ export default {
       required: false,
       default: false,
     },
-  },
 
-  methods: {
-    togglePanel(ev) {
-      this.isExpanded = !this.isExpanded;
-      const panel = ev.target.nextElementSibling;
-
-      if (panel.style.maxHeight) {
-        panel.style.maxHeight = null;
-      } else {
-        panel.style.maxHeight = panel.scrollHeight + "px";
-      }
+    expanded: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
   },
 };
