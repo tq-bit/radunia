@@ -1,6 +1,6 @@
 <template>
   <div class="q-accordion-wrapper">
-    <header class="q-accordion-header">{{ header }} TEst</header>
+    <header class="q-accordion-header">{{ header }}</header>
     <slot />
     <footer class="q-accordion-footer">
       <slot name="accordion-footer" />
