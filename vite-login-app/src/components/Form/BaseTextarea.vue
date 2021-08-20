@@ -36,13 +36,13 @@ export default {
 .q-textarea-base,
 .q-input-label {
   min-height: var(--el-size-sm);
-  font-size: var(--text-size-md);
+  font-size: var(--text-size-sm);
   padding: var(--gap-xs) var(--gap-sm);
 }
 
 .q-input-label {
   color: var(--accent-color-primary);
-  font-size: var(--text-size-md);
+  font-size: var(--text-size-sm);
   font-weight: 600;
   text-transform: uppercase;
 }

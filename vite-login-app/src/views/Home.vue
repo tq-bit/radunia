@@ -11,7 +11,7 @@
     "
   >
     <q-accordion>
-      <q-accordion-item title="This is a header">
+      <q-accordion-item :expanded="true" title="This is a header">
         <p>
           At vero eos et accusamus et iusto odio dignissimos ducimus qui
           blanditiis praesentium voluptatum deleniti atque corrupti quos dolores

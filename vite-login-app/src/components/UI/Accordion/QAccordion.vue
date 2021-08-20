@@ -1,8 +1,6 @@
 <template>
   <div class="q-accordion-wrapper">
-    <header class="q-accordion-header">
-      {{ header }}
-    </header>
+    <header class="q-accordion-header">{{ header }} TEst</header>
     <slot />
     <footer class="q-accordion-footer">
       <slot name="accordion-footer" />
@@ -39,12 +37,12 @@ export default {
   border-top-left-radius: var(--gap-xs);
   border-top-right-radius: var(--gap-xs);
   font-size: var(--text-size-xxl);
-  padding: var(--gap-lg);
+  padding: var(--gap-sm) var(--gap-lg);
 }
 
 .q-accordion-footer {
   border-bottom-left-radius: var(--gap-xs);
   border-bottom-right-radius: var(--gap-xs);
-  padding: var(--gap-sm);
+  padding: var(--gap-sm) var(--gap-lg);
 }
 </style>

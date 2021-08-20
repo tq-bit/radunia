@@ -160,10 +160,11 @@ export default {
   --gap-xl: 1.25rem;
   --gap-xxl: 1.5rem;
   --gap-max: 1.75rem;
-  --text-size-md: 0.9rem;
-  --text-size-lg: 1.05rem;
-  --text-size-xl: 1.15rem;
-  --text-size-xxl: 1.35rem;
+  --text-size-sm: 0.9rem;
+  --text-size-md: 1.05rem;
+  --text-size-lg: 1.15rem;
+  --text-size-xl: 1.35rem;
+  --text-size-xxl: 1.65rem;
 }
 
 * {
@@ -202,7 +203,7 @@ h6 {
 p {
   color: var(--text-color-secondary);
   margin: var(--gap-md) 0;
-  font-size: var(--text-size-lg);
+  font-size: var(--text-size-md);
   line-height: var(--gap-max);
 }
 
@@ -227,7 +228,7 @@ textarea {
 a:before {
   transition: var(--duration-quick);
   position: absolute;
-  top: var(--text-size-xl);
+  top: var(--text-size-lg);
   left: 50%;
   content: "";
   width: 0;

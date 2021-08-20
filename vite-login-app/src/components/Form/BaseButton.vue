@@ -70,7 +70,7 @@ export default {
   border-radius: var(--gap-xs);
   color: var(--background-color-tartiary);
   cursor: pointer;
-  font-size: var(--text-size-md);
+  font-size: var(--text-size-sm);
   margin: var(--gap-xs) 0;
   padding: var(--gap-sm) var(--gap-sm);
   text-align: center;
@@ -80,13 +80,13 @@ export default {
 /* Variant classes */
 .q-button-v-default {
   padding: var(--gap-sm) var(--gap-sm);
-  font-size: var(--text-size-md);
+  font-size: var(--text-size-sm);
   background-color: var(--accent-color-primary);
   font-weight: 600;
 }
 
 .q-button-v-big {
-  font-size: var(--text-size-xxl);
+  font-size: var(--text-size-xl);
   padding: var(--gap-md) var(--gap-xl);
   font-weight: 600;
 }
@@ -120,8 +120,8 @@ export default {
 .loader {
   display: block;
   margin: auto;
-  width: var(--text-size-xl);
-  height: var(--text-size-xl);
+  width: var(--text-size-lg);
+  height: var(--text-size-lg);
   border-radius: 50%;
   border-top: 2px solid var(--background-color-tartiary);
   border-right: 2px solid transparent;

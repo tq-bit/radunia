@@ -108,13 +108,13 @@ export default {
   position: absolute;
   top: var(--gap-xl);
   right: var(--gap-xl);
-  font-size: var(--text-size-xxl);
+  font-size: var(--text-size-xl);
 }
 
 .q-sidebar-title {
   text-align: center;
   color: #fff;
-  font-size: var(--text-size-xxl);
+  font-size: var(--text-size-xl);
 }
 
 .q-sidebar-body {
@@ -135,7 +135,7 @@ export default {
   color: var(--text-color-primary);
   padding: var(--gap-sm) var(--gap-md);
   font-weight: 600;
-  font-size: var(--text-size-lg);
+  font-size: var(--text-size-md);
   border-radius: var(--gap-xxl);
 }
 

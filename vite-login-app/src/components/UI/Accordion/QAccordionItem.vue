@@ -91,7 +91,7 @@ export default {
   width: 100%;
   background-color: var(--background-color-secondary);
   padding: var(--gap-lg);
-  font-size: var(--text-size-xl);
+  font-size: var(--text-size-lg);
   color: var(--text-color-primary);
   text-align: left;
   border: none;

@@ -85,7 +85,7 @@ ul.q-navbar-navigation {
 
 .q-navbar-logo {
   font-weight: 600;
-  font-size: var(--text-size-lg);
+  font-size: var(--text-size-md);
 }
 
 .q-navbar-logo,
