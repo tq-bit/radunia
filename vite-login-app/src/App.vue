@@ -168,21 +168,16 @@ export default {
 }
 
 * {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   transition: 0.1s;
 }
 
-html {
+body {
   min-height: 100vh;
   background-color: var(--background-color-primary);
-}
-
-ul {
-  margin: 0;
-  list-style: none;
 }
 
 li {
@@ -198,6 +193,31 @@ h5,
 h6 {
   color: var(--text-color-primary);
   margin: var(--gap-xl) 0;
+}
+
+table {
+  width: 100%;
+  text-align: center;
+  margin: var(--gap-md) 0;
+  border-collapse: collapse;
+  color: var(--text-color-primary)
+}
+
+th {
+  padding: var(--gap-md);
+  border: none;
+  border-bottom: 1.25px solid var(--grey-color);
+}
+
+tr {
+  border: none;
+}
+
+td {
+  background-color: var(--background-color-primary);
+  padding: var(--gap-md);
+  border: none;
+  border-bottom: 1px solid var(--grey-color);
 }
 
 p {
@@ -230,9 +250,10 @@ a:before {
   position: absolute;
   top: var(--text-size-lg);
   left: 50%;
-  content: "";
+  content: '';
   width: 0;
   height: var(--gap-xxs);
   background-color: var(--accent-color-primary);
 }
+
 </style>
