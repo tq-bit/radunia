@@ -13,7 +13,7 @@ export default {
   props: {
     header: {
       type: String,
-      required: true,
+      required: false,
     },
   },
 };

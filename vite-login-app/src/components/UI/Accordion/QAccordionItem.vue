@@ -66,7 +66,7 @@ export default {
 
     icon: {
       type: String,
-      required: true,
+      required: false,
       default: "+",
     },
 
