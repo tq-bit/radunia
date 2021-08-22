@@ -46,7 +46,7 @@
 
 <script>
 import BurgerButton from "../Form/BurgerButton.vue";
-import QThemeButton from "./QThemeButton.vue";
+import QThemeButton from "./Theme/QThemeButton.vue";
 
 export default {
   components: {
