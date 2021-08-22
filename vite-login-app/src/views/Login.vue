@@ -85,11 +85,12 @@ export default {
           password: this.formLogin.password,
         };
 
-        const { title, message } = await this.login(payload);
+        const { status, title, message } = await this.login(payload);
         this.alert({ title, message });
-        this.$router.push({ path: `/profile` });
-        console.log('I should now redirect ...')
-        this.formLogin = { username: "", password: "" };
+        if (status === 'login-success') {
+          this.$router.push({ path: `/profile` });
+          this.formLogin = { username: "", password: "" };
+        }
       } catch (err) {
         this.$emit("alertError", err);
       } finally {

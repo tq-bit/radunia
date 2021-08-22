@@ -65,14 +65,14 @@ const store = new Vuex.Store({
         const { auth: userAuth } = data;
 
         const token = loginHeaders['x-api-token'];
-        const {/* status, */ title, message } = data;
+        const {status, title, message } = data;
         Cookies.set('user-token', token, { expires: 7 })
         commit('SET_TOKEN', { token });
         commit('SET_USER_AUTH', { userAuth })
-        return { title, message }
+        return { status, title, message }
       } catch (err) {
-        const { /* status, */ title, message } = err.response.data
-        return { title, message };
+        const {  status,  title, message } = err.response.data
+        return { status, title, message };
       }
     },
 
