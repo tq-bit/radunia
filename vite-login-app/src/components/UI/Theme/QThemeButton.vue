@@ -2,11 +2,11 @@
   <div>
     <input
       @change="toggleTheme"
-      :id="uuid"
+      :id="themeButtonId"
       type="checkbox"
       class="q-switch-checkbox"
     />
-    <label class="q-switch-label" :for="uuid">
+    <label class="q-switch-label" :for="themeButtonId">
       <span>🌙</span>
       <span>☀️</span>
       <div
@@ -19,12 +19,12 @@
 </template>
 
 <script>
-import { v4 as uuidv4 } from "uuid";
+import uuid from "../../../use/uuid";
 import { ref, onMounted } from "vue";
 
 export default {
   setup({ initWithPreference }) {
-    const uuid = uuidv4();
+    const themeButtonId = uuid();
     let userTheme = ref("");
     const toggleTheme = () => {
       const activeTheme = localStorage.getItem("user-theme");
@@ -58,7 +58,7 @@ export default {
       }
     });
 
-    return { uuid, userTheme, toggleTheme };
+    return { themeButtonId, userTheme, toggleTheme };
   },
   props: {
     initWithPreference: {
