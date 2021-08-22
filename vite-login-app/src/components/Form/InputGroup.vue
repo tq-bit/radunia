@@ -1,5 +1,5 @@
 <template>
-  <fieldset :attr="$attr" class="input-group">
+  <fieldset class="input-group">
     <legend v-if="title">{{ title }}</legend>
     <slot />
   </fieldset>
