@@ -19,9 +19,9 @@ I've created radunia with reusability in mind. At a minimum, the Vue frontend so
 
 --At the time writing this readme, I haven't yet seen the benefit of using live-code updates with docker. That means that you'll need a working verion of Node.js (v.14) on your machine. For a quick setup, run the `init.sh` script in the bin folder.-- That was probably the most stupid think to think.
 
-Radunia can be developed without any kind of dependencies. Just pull the repos down and run `docker-compose up` after filling out the environment variables
+Radunia can be developed without any kind of dependencies. Just pull the repos down and run `docker-compose up` after filling out the environment variables with `init.sh`.
 
-Then, change the `DB_HOST_ADMIN` variable in the .env file to a mongodb instance of your choice. For a quick and painless setup in the cloud, visit https://www.mongodb.com/cloud/atlas
+You can optionally change the `DB_HOST_ADMIN` variable in the .env file to a mongodb instance of your choice. For a quick and painless setup in the cloud, visit https://www.mongodb.com/cloud/atlas
 
 ## Docker setup
 
@@ -44,7 +44,11 @@ You can alternatively use the `init.sh` file in ./bin
 
 > Note that it will throw an error if you do not have node.js installed on your local machine.
 
-Make sure you have the `docker-compose` binary installed. Then, in the project's root directory, run:
+Make sure you have the `docker-compose` binary installed and exchanged the setup scripts the second part of the `docker-compose.yaml`.
+
+> You have to comment out the login-app-dev service and uncomment login-app
+
+Then, in the project's root directory, run:
 
 ```shell
 docker-compose up
