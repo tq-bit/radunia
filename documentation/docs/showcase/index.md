@@ -1,0 +1,3 @@
+# Showcase index
+
+[Home](/)
