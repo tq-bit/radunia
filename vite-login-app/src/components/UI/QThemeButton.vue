@@ -13,53 +13,35 @@
         class="q-toggle"
         :class="{ 'q-toggle-checked': userTheme === 'dark-theme' }"
       ></div>
+
     </label>
   </div>
 </template>
 
 <script>
 import { v4 as uuidv4 } from "uuid";
+import { ref, onMounted } from "vue";
 
 export default {
-  setup() {
+  setup({ initWithPreference }) {
     const uuid = uuidv4();
-    return { uuid };
-  },
-  props: {
-    initWithPreference: {
-      type: Boolean,
-      required: false,
-      default: true,
-    },
-  },
-  mounted() {
-    if (this.initWithPreference) {
-      const initUserTheme = this.getMediaPreference();
-      this.setTheme(initUserTheme);
-    }
-  },
-  data() {
-    return {
-      userTheme: "",
-    };
-  },
-  methods: {
-    toggleTheme() {
+    let userTheme = ref("");
+    const toggleTheme = () => {
       const activeTheme = localStorage.getItem("user-theme");
       if (activeTheme === "light-theme") {
-        this.setTheme("dark-theme");
+        setTheme("dark-theme");
       } else {
-        this.setTheme("light-theme");
+        setTheme("light-theme");
       }
-    },
+    };
 
-    setTheme(theme) {
+    const setTheme = (theme) => {
       localStorage.setItem("user-theme", theme);
-      this.userTheme = theme;
+      userTheme.value = theme;
       document.documentElement.className = theme;
-    },
+    };
 
-    getMediaPreference() {
+    const getMediaPreference = () => {
       const hasDarkPreference = window.matchMedia(
         "(prefers-color-scheme: dark)"
       ).matches;
@@ -68,6 +50,21 @@ export default {
       } else {
         return "light-theme";
       }
+    };
+
+    onMounted(() => {
+      if (initWithPreference) {
+        setTheme(getMediaPreference());
+      }
+    });
+
+    return { uuid, userTheme, toggleTheme };
+  },
+  props: {
+    initWithPreference: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
   },
 };
