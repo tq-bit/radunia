@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const authClient = axios.create({
-  baseURL: `http://${window.location.hostname}:3001/api/v1/`
+  baseURL: `http://localhost:3001/api/v1/`
 })
 
 export const avatarClient = axios.create({

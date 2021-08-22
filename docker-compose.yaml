@@ -1,25 +1,46 @@
-version: "3.8"
+version: '3.8'
 services:
   mongodb:
-    image: "mongo"
+    image: 'mongo'
     volumes:
       - db_data:/data/db
 
   authenticator-api:
     build: ./authenticator-api
     ports:
-      - "3001:3001"
-    env_file:
-      ./authenticator-api/.env
+      - '3001:3001'
+    env_file: ./authenticator-api/.env
     depends_on:
       - mongodb
 
-  login-app:
-    build: ./vite-login-app
+  # login-app:
+  #   build:
+  #     context: ./vite-login-app
+  #     dockerfile: prod.dockerfile
+  #   ports:
+  #     - '80:80'
+  #   depends_on:
+  #     - authenticator-api
+
+  login-app-dev:
+    # build: ./vite-login-app
+    build:
+      context: ./vite-login-app
+      dockerfile: dev.dockerfile
+
+    # volumes are only relevant for development
+    volumes:
+      - ./vite-login-app:/app
+
     ports:
-      - "80:80"
+      #   - "80:80"
+      - '3000:3000'
+    expose:
+      - '3000'
     depends_on:
       - authenticator-api
+    stdin_open: true
+    tty: true
 
 volumes:
   db_data:
