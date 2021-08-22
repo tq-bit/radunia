@@ -8,9 +8,14 @@
         'q-rounded-bottom': roundedBottom && !isExpanded,
       }"
       @click="isExpanded = !isExpanded"
-      class="q-accordion-button"
+      class="q-accordion-header-wrapper"
     >
-      {{ title }}
+      <h3 class="q-accordion-header-title">
+        {{ title }}
+      </h3>
+      <span class="q-accordion-header-icon" :id="iconId">
+        {{ icon }}
+      </span>
     </button>
     <section
       :id="panelId"
@@ -26,29 +31,58 @@
 <script>
 import { ref, watch, onMounted } from "vue";
 import uuid from "../../../use/uuid";
+
 export default {
-  setup({ expanded }) {
-    const panelId = uuid();
+  setup({ expanded, targetRotation, baseRotation }) {
+    const panelId = `panel-${uuid()}`;
+    const iconId = `icon-${uuid()}`;
     let isExpanded = ref(expanded);
+
+    // Rotate the icon and open/close the accordion on click
     const togglePanel = () => {
       const panel = document.getElementById(panelId);
-      isExpanded.value
-        ? (panel.style.maxHeight = panel.scrollHeight + "px")
-        : (panel.style.maxHeight = null);
+      const icon = document.getElementById(iconId);
+
+      if (isExpanded.value === true) {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+        icon.style.transform = `rotate(${targetRotation}deg)`;
+      } else {
+        panel.style.maxHeight = null;
+        icon.style.transform = `rotate(${baseRotation}deg)`;
+      }
     };
 
     watch(isExpanded, () => togglePanel());
     onMounted(() => togglePanel());
-    return { isExpanded, panelId };
+
+    return { isExpanded, panelId, iconId };
   },
   props: {
-    // Test properties
+    // Content
     title: {
       type: String,
       required: true,
     },
 
+    icon: {
+      type: String,
+      required: true,
+      default: "+",
+    },
+
     // Style properties
+    targetRotation: {
+      type: Number,
+      required: false,
+      default: 45,
+    },
+
+    baseRotation: {
+      type: Number,
+      required: false,
+      default: 0,
+    },
+
     reversed: {
       type: Boolean,
       required: false,
@@ -87,28 +121,30 @@ export default {
   flex-direction: column-reverse;
 }
 
-.q-accordion-button {
+.q-accordion-header-wrapper {
   width: 100%;
   background-color: var(--background-color-secondary);
   padding: var(--gap-lg);
-  font-size: var(--text-size-lg);
-  color: var(--text-color-primary);
-  text-align: left;
   border: none;
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
 }
 
-.expanded:after {
-  content: "+";
-  transition: transform var(--duration-quickest);
-  transform: rotate(45deg);
-  float: right;
+.q-accordion-header-title,
+.q-accordion-header-icon {
+  font-size: var(--text-size-lg);
+  color: var(--text-color-primary);
+  margin: 0;
 }
 
-.collapsed:after {
-  content: "+";
-  transition: transform var(--duration-quickest);
-  float: right;
+.q-accordion-header-icon {
+  transition: all var(--duration-quickest);
+  text-align: right;
+}
+
+.q-accordion-header-title {
+  text-align: left;
 }
 
 .q-rounded-top {
