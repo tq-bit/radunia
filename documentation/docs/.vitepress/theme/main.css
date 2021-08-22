@@ -1,8 +1,8 @@
 :root.dark-theme {
   /* Background colors */
   --background-color-primary: #1e1e1e;
-  --background-color-tartiary: #2d2d30;
   --background-color-secondary: #252526;
+  --background-color-tartiary: #2d2d30;
 
   /* Text colors */
   --text-color-primary: #ddd;
@@ -71,7 +71,7 @@
 
 body {
   min-height: 100vh;
-  background-color: var(--background-color-primary);
+  background-color: var(--background-color-secondary);
 }
 
 li {
@@ -125,6 +125,10 @@ p {
   line-height: var(--gap-max);
 }
 
+code {
+  color: var(--text-color-primary);
+}
+
 hr {
   border: 0.1px solid var(--grey-color);
   border-style: dotted;
@@ -136,8 +140,26 @@ textarea {
   resize: none;
 }
 
-
 /* Overwrite vitepress styles */
+.sidebar-link-item, .nav-bar-title {
+  color: var(--text-color-secondary) !important;
+}
+
+header.nav-bar {
+  background-color: var(--background-color-secondary) !important;
+  border-bottom: 0.25px solid var(--grey-color) !important;
+}
+
+.nav-link a.item {
+  color: var(--text-color-secondary) !important;
+}
+
+aside.sidebar {
+  background-color: var(--background-color-secondary) !important;
+  border-right: 0.25px solid var(--grey-color) !important;
+}
+
 .tip.custom-block {
   background-color: var(--background-color-tartiary);
+  color: var(--text-color-primary) !important;
 }

@@ -83,7 +83,7 @@ export default {
   cursor: pointer;
   display: flex;
   font-size: calc(var(--el-size-xs) * 0.3);
-  height: calc(var(--el-size-xs) * 0.55);
+  height: calc(var(--el-size-xs) * 0.5);
   position: relative;
   padding: calc(var(--el-size-xs) * 0.1);
   transition: background 0.5s ease;
@@ -97,9 +97,9 @@ export default {
   background-color: var(--accent-color-primary);
   border-radius: 50%;
   top: calc(var(--el-size-xs) * 0.05);
-  left: calc(var(--el-size-xs) * 0.07);
-  height: calc(var(--el-size-xs) * 0.4);
-  width: calc(var(--el-size-xs) * 0.4);
+  left: calc(var(--el-size-xs) * 0.1);
+  height: calc(var(--el-size-xs) * 0.35);
+  width: calc(var(--el-size-xs) * 0.35);
   transform: translateX(0);
   transition: transform 0.3s ease, background-color 0.5s ease;
 }
