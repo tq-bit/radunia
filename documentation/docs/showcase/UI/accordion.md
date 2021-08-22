@@ -22,7 +22,6 @@ Accordions are useful when toggling a large amount of content. Radunia's impleme
 | **Styles**      | ../../assets/main.css | CSS Variables       | Yes      |
 | **Functions**   | ../../use/uuid        | Assign ids to items | No       |
 
-
 ## Usage
 
 Import the following component/s:

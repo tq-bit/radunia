@@ -5,4 +5,11 @@ module.exports = {
   markdown: {
     lineNumbers: true,
   },
+  themeConfig: {
+    nav: [
+      { text: "Home", link: "/" },
+      { text: "Showcase", link: "/showcase/" },
+      { text: "Github", link: "https://github.com/tq-bit/radunia" },
+    ],
+  },
 };
