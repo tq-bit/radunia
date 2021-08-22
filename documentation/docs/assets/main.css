@@ -53,6 +53,7 @@
   --gap-xl: 1.25rem;
   --gap-xxl: 1.5rem;
   --gap-max: 1.75rem;
+  --text-size-xs: 0.75rem;
   --text-size-sm: 0.9rem;
   --text-size-md: 1.05rem;
   --text-size-lg: 1.15rem;
@@ -88,6 +89,10 @@ h6 {
   margin: var(--gap-xl) 0;
 }
 
+small {
+  font-size: var(--text-size-xs);
+}
+
 table {
   width: 100%;
   text-align: center;
@@ -120,13 +125,6 @@ p {
   line-height: var(--gap-max);
 }
 
-a {
-  color: var(--accent-color-primary);
-  font-weight: 600;
-  text-decoration: none;
-  position: relative;
-}
-
 hr {
   border: 0.1px solid var(--grey-color);
   border-style: dotted;
@@ -138,13 +136,8 @@ textarea {
   resize: none;
 }
 
-a:before {
-  transition: var(--duration-quick);
-  position: absolute;
-  top: var(--text-size-lg);
-  left: 50%;
-  content: '';
-  width: 0;
-  height: var(--gap-xxs);
-  background-color: var(--accent-color-primary);
+
+/* Overwrite vitepress styles */
+.tip.custom-block {
+  background-color: var(--background-color-tartiary);
 }
