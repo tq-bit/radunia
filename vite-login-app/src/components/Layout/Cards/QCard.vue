@@ -27,31 +27,21 @@ export default {
 
 <style scoped>
 .q-card {
+  margin: var(--gap-md);
   background-color: var(--background-color-tartiary);
   border-top: 3px solid var(--accent-color-primary);
   border-radius: var(--gap-xs);
   transition: var(--duration-quick) all;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 6px;
 }
-.q-card > * {
+
+.q-card {
   padding: var(--gap-lg);
 }
 
-.q-card:hover {
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 15px;
-  transform: translateY(var(--gap-xs));
-  transition: var(--duration-quick) all;
-}
-
-
-.q-card-header > *,
-.q-card-footer > *,
-.q-card-body > * {
-  margin: 0;
-  width: 100%;
-}
-
-.q-card-body > *, .q-card-body > * > * {
-  line-height: var(--gap-xl);
+.q-card-header,
+.q-card-body,
+.q-card-footer {
+  padding: 0 var(--gap-xl);
 }
 </style>
