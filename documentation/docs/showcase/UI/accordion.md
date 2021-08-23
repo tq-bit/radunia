@@ -48,7 +48,7 @@ Each accordion item can be used independently from one another. It handles toggl
 
 **Example**
 
-```html
+```vue
 <QAccordionItem title="Item one">
   <p>
     At vero eos et accusamus et iusto odio dignissimos ducimus qui
@@ -73,7 +73,7 @@ Whether used standalone or in groups, this component usually looks better with r
 
 **Example**
 
-```html
+```vue
 <QAccordionItem title="Item one" :roundedTop="true" :roundedBottom="true">
   <p>
     At vero eos et accusamus et iusto odio dignissimos ducimus qui
@@ -105,7 +105,7 @@ Use the `roundedTop` and `roundedBottom` attributes on the first and last item
 
 **Example**
 
-```html {1,7}
+```vue {1,7}
 <QAccordionItem title="Item one" :roundedTop="true">
   <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui ...</p>
 </QAccordionItem>
@@ -132,7 +132,7 @@ Instead of styling elements individually, you can place them inside a wrapper el
 
 **Example**
 
-```html {1}
+```vue {1}
 <QAccordion header="Accordion wrapper title">
   <QAccordionItem title="Item one">
   </QAccordionItem>
@@ -159,7 +159,7 @@ You can replace the standard '+' sign with your own icon and adjust its rotation
 
 **Example**
 
-```html {1}
+```vue {1}
 <QAccordionItem title="Item one" icon="❯" :baseRotation="0" :targetRotation="90">
 <p>
   At vero eos et accusamus et iusto odio dignissimos ducimus qui

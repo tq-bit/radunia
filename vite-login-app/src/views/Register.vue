@@ -1,7 +1,7 @@
 <template>
   <div id="register" class="q-mt-5">
     <q-snip-container>
-      <q-card card-title="Sign up for a new account">
+      <q-card title="Sign up for a new account">
         <template v-slot:card-body>
           <form @submit.prevent="handleLogin">
             <input-group>
@@ -50,7 +50,7 @@
 
 <script>
 import QSnipContainer from "../components/Layout/Board/QSnipContainer.vue";
-import QCard from "../components/UI/Cards/QCard.vue";
+import QCard from "../components/Layout/Cards/QCard.vue";
 import BaseInput from "../components/Form/BaseInput.vue";
 import BaseButton from "../components/Form/BaseButton.vue";
 import InputGroup from "../components/Form/InputGroup.vue";

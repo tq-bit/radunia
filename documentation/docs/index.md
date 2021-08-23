@@ -11,8 +11,7 @@ const { site } = useData()
 
 ## Dependencies
 
-Some components depend upon other components or imported functions. Each of these are outlined in the respective component document in a tabular format.
-
+Some components depend upon other components or imported functions. Each of them are outlined in the respective component document.
 ### Style dependencies
 
 While Radunis's components have their own scoped style, most of require root CSS variables. They can be found under [Global Styles](#global-styles).
@@ -26,22 +25,18 @@ The styles for this documentation are located under `/docs/assets/main.css`
 Since Vue 3's Composition API makes it easier than ever to share code, a lot of Radunia makes use of it. In order to function, some components might have to have their import paths adjusted before they can be used
 
 :::tip Required functions
-Composition functions for this documentation are located under `/docs/use/*js`
+Composition functions for this documentation are located under `/docs/use/*.js`
 :::
 
 ## Component collection
 
 Components are grouped by purpose. Each resides in its own directory and has an equivalent inside the Components - directory of the main Radunia project.
 
-[Link to components](./showcase/index.md)
+[Visit the showcase](./showcase/index.md)
 
 ## Global styles
 
-All components in this project depend on global CSS variables. They have to be declared in a separate file or in the `App.vue` component. Colors across the project can be customized by simply changing out the color values here.
-
-### Darkmode
-
-Radunia has a class-based darkmode which can be toggled by `QThemeButton`. `.dark-mode` is dynamically applied to the root - pseudoelement, based on whether or not the user has dark mode enabled. [Read more](./showcase/UI/themebutton.md)
+A majority of components in this project depend on global CSS variables. They have to be declared in a separate file or in the `App.vue` component or a dedicated file.
 
 ### Template for css variables
 
@@ -111,3 +106,7 @@ Add the following code to your `App.vue` file:
   --text-size-xxl: 1.65rem;
 }
 ```
+
+### Darkmode
+
+Radunia has a class-based darkmode which can be toggled by `QThemeButton`. `.dark-mode` is dynamically applied to the root - pseudoelement, based on whether or not the user has dark mode enabled. [Read more](./showcase/UI/themebutton.md)

@@ -36,7 +36,7 @@ Just import and include the component into a single file.
 
 **Example**
 
-```html
+```vue
 <q-theme-button />
 ```
 
@@ -48,7 +48,7 @@ By default, the user's browser settings are preferred over those in localstorage
 
 **Example**
 
-```html
+```vue
 <q-theme-button :initWithPreference="false" />
 ```
 

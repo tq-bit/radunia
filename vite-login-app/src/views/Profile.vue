@@ -61,7 +61,7 @@ import { DateTime } from "luxon";
 import QGridContainer from "../components/Layout/Grid/QGridContainer.vue";
 import QGridColumn from "../components/Layout/Grid/QGridColumn.vue";
 import QImage from "../components/UI/QImage.vue";
-import QUserCard from "../components/UI/Cards/QUserCard.vue";
+import QUserCard from "../components/Layout/Cards/QUserCard.vue";
 import BaseButton from "../components/Form/BaseButton.vue";
 import QTextarea from "../components/Form/BaseTextarea.vue";
 

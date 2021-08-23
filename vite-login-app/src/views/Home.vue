@@ -54,7 +54,7 @@
       <q-card
         v-for="card in homeCards"
         :key="card.title"
-        :card-title="card.title"
+        :title="card.title"
       >
         <template v-slot:card-body>
           <p>{{ card.text }}</p>
@@ -72,7 +72,7 @@ import QAccordionItem from "../components/UI/Accordion/QAccordionItem.vue";
 import QHero from "../components/UI/QHero.vue";
 import QGridContainer from "../components/Layout/Grid/QGridContainer.vue";
 import QPaperContainer from "../components/Layout/Board/QPaperContainer.vue";
-import QCard from "../components/UI/Cards/QCard.vue";
+import QCard from "../components/Layout/Cards/QCard.vue";
 
 export default {
   components: {
