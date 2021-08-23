@@ -41,7 +41,7 @@ All components in this project depend on global CSS variables. They have to be d
 
 ### Darkmode
 
-Radunia has a class-based darkmode which can be toggled by the `QThemeButton` Component. The `:root.dark-mode` pseudoelement is dynamically applied, based on whether the user has dark mode enabled or not.
+Radunia has a class-based darkmode which can be toggled by `QThemeButton`. `.dark-mode` is dynamically applied to the root - pseudoelement, based on whether or not the user has dark mode enabled. [Read more](./showcase/UI/themebutton.md)
 
 ### Template for css variables
 
