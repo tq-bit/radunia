@@ -13,7 +13,6 @@
         class="q-toggle"
         :class="{ 'q-toggle-checked': userTheme === 'dark-theme' }"
       ></div>
-
     </label>
   </div>
 </template>
@@ -47,14 +46,14 @@ export default {
       ).matches;
       if (hasDarkPreference) {
         return "dark-theme";
-      } else {
-        return "light-theme";
       }
     };
 
     onMounted(() => {
       if (initWithPreference) {
         setTheme(getMediaPreference());
+      } else {
+        setTheme(localStorage.getItem("user-theme"));
       }
     });
 

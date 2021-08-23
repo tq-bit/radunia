@@ -5,11 +5,12 @@ import QThemeButton from '../../components/UI/Theme/QThemeButton.vue'
 </script>
 
 <style>
-@import '../../assets/main.css'
+@import '../../.vitepress/theme/main.css'
 </style>
 
 
 <QThemeButton style="float: right;" />
+
 # QAccordion component
 
 Accordions are useful when toggling a large amount of content. Radunia's implementation uses no Javascript to calculate the height of the item's content, but a `max-height` transition, together with `overflow-hidden`. It adds accessibility by binding `:aria-expanded="isExpanded"` to each created child element and makes use of the composition API.
@@ -166,3 +167,13 @@ You can replace the standard '+' sign with your own icon and adjust its rotation
 </p>
 </QAccordionItem>
 ```
+
+## Full component's code
+
+### QAccordion
+
+<<< @/components/UI/Accordion/QAccordion.vue
+
+### QAccordionItem
+
+<<< @/components/UI/Accordion/QAccordionItem.vue

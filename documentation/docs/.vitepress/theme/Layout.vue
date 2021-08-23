@@ -10,7 +10,7 @@ const { Layout } = DefaultTheme
 <template>
   <Layout>
     <template #navbar-search>
-      <q-theme-button style="margin-left: 1.5rem;" />
+      <q-theme-button :initWithPreference="false" style="margin-left: 1.5rem;" />
     </template>
   </Layout>
 </template>

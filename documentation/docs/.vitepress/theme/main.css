@@ -95,7 +95,6 @@ small {
 
 table {
   width: 100%;
-  text-align: center;
   margin: var(--gap-md) 0;
   border-collapse: collapse;
   color: var(--text-color-primary)
@@ -141,6 +140,7 @@ textarea {
 }
 
 /* Overwrite vitepress styles */
+
 .sidebar-link-item, .nav-bar-title {
   color: var(--text-color-secondary) !important;
 }
