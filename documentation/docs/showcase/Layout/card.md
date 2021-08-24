@@ -24,31 +24,9 @@ Import the following component/s:
 import QCard from '../../components/Layout/Cards/QCard.vue'
 ```
 
-### Card with title and body
-
-Just a simple card with a title & some content
-
-<q-card title="A common card element" >
- <template v-slot:card-body>
-  <p>The card's body can be injected using v-slot:card-body. It can be filled with text, form elements or images. </p>
- </template>
-</q-card>
-
-**Example**
-
-```vue
-<q-card title="A usual card" >
- <template v-slot:card-body>
-  <p>
-    The card's body can be injected using v-slot:card-body.
-    It can be filled with text, form elements or images.
-  </p>
- </template>
-</q-card>
-```
 ### Card with title, body & footer
 
-It can be extended using a footer to place call to actions or submit buttons
+Cards can be extended using a footer to place call to actions or submit buttons.
 
 <q-card title="A common card element" >
   <template v-slot:card-body>
@@ -59,8 +37,10 @@ It can be extended using a footer to place call to actions or submit buttons
     </p>
   </template>
   <template v-slot:card-footer>
-    <a style="margin-right: 1.5rem;" href="#">Read more</a>
-    <a href="#">Sign up</a>
+    <div>
+      <a style="margin-right: 1.5rem;" href="#">Read more</a>
+      <a href="#">Sign up</a>
+    </div>
   </template>
 </q-card>
 
@@ -82,6 +62,47 @@ It can be extended using a footer to place call to actions or submit buttons
 </q-card>
 ```
 
+### Card with an image
+
+<q-card title="A card with an image" imgSrc="../../public/forest.jpg" imgAlt="an image showing a forest" imgLoading="lazy" >
+  <template v-slot:card-body>
+    <p>
+      Images can be bound to the root card element.
+      They will be lazy loaded by default, which can
+      be overwritten by specifying imgLoading="eager"
+    </p>
+  </template>
+  <template v-slot:card-footer>
+    <div>
+      <a style="margin-right: 1.5rem;" href="#">Read more</a>
+      <a href="#">Sign up</a>
+    </div>
+  </template>
+</q-card>
+
+**Example**
+
+```vue
+<q-card
+  title="A card with an image"
+  imgSrc="../../public/forest.jpg"
+  imgAlt="an image showing a forest"
+  imgLoading="lazy" >
+  <template v-slot:card-body>
+    <p>
+      Images can be bound to the root card element.
+      They will be lazy loaded by default, which can
+      be overwritten by specifying imgLoading="eager"
+    </p>
+  </template>
+  <template v-slot:card-footer>
+    <div>
+      <a style="margin-right: 1.5rem;" href="#">Read more</a>
+      <a href="#">Sign up</a>
+    </div>
+  </template>
+</q-card>
+```
 
 ## Full component's code
 

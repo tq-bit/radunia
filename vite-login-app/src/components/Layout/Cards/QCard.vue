@@ -1,5 +1,6 @@
 <template>
   <div class="q-card">
+    <img v-if="imgSrc" :src="imgSrc" :alt="imgAlt" :loading="imgLoading" />
     <div class="q-card-header">
       <h3>{{ title }}</h3>
     </div>
@@ -16,6 +17,24 @@
 <script>
 export default {
   props: {
+    imgSrc: {
+      type: String,
+      required: false,
+      default: "",
+    },
+    imgAlt: {
+      type: String,
+      required: false,
+      default: "",
+    },
+    imgLoading: {
+      type: String,
+      required: false,
+      default: "lazy",
+      validator(value) {
+        return ["eager", "lazy"].indexOf(value) !== -1;
+      },
+    },
     title: {
       type: String,
       required: false,
@@ -35,13 +54,19 @@ export default {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 6px;
 }
 
-.q-card {
-  padding: var(--gap-lg);
+.q-card-image {
+  width: 100%;
+  height: auto;
 }
 
-.q-card-header,
-.q-card-body,
+.q-card-header {
+  margin: var(--gap-xl);
+}
+
+.q-card-body {
+  margin: var(--gap-md) var(--gap-xl);
+}
 .q-card-footer {
-  padding: 0 var(--gap-xl);
+  padding: var(--gap-md) var(--gap-xl) var(--gap-xl);
 }
 </style>
