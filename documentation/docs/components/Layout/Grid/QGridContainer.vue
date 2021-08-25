@@ -4,10 +4,8 @@
     class="q-grid"
     :class="{
       'q-grid-fluid': fluid === true,
-      'q-grid-1': cols === 1,
-      'q-grid-1-1': cols === 2,
-      'q-grid-1-1-1': cols === 3,
     }"
+    :style="{ 'grid-template-columns': `repeat(${cols}, 1fr)` }"
   >
     <slot />
   </div>
@@ -23,6 +21,7 @@
       'q-grid-1-1-1': format === '1/1/1',
       'q-grid-1-2-1': format === '1/2/1',
       'q-grid-2-1-2': format === '2/1/2',
+      'q-grid-dynamic': format === 'dynamic',
     }"
   >
     <slot />
@@ -75,7 +74,8 @@ export default {
   .q-grid {
     width: 80%;
   }
-  .q-grid-1-1, .q-grid-1-3 {
+  .q-grid-1-1,
+  .q-grid-1-3 {
     grid-template-columns: 50% 50%;
   }
 
@@ -93,7 +93,6 @@ export default {
   }
   .q-grid-1-3 {
     grid-template-columns: 25% 75%;
-
   }
   .q-grid-1-1-1 {
     grid-template-columns: 33.33% 33.34% 33.33%;

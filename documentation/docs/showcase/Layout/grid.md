@@ -26,19 +26,23 @@ import QGridContainer from '../../components/Layout/Grid/QGridContainer.vue'
 import QGridColumn from '../../components/Layout/Grid/QGridColumn.vue'
 ```
 
-### Three even columns - format
+### One column layout
 
 Containers are responsive. Their width is relative to their respective parent element.
 
 Media query breakpoints for the container are set at:
 
-- default: 95%
+- default width: 95%
 - width > 768px: 80%
 - width > 992px: 70%
 - width > 1200px: 60%
 - width > 1400px: 50%
 
-<q-grid-container format="1/1/1">
+### Three even columns - format
+
+Three columns that scale down at less than `992px`. Use whenever you need a bit of space around your content
+
+<q-grid-container format="1">
   <q-grid-column style="padding: 0.5rem; background-color: #aaa; text-align: center">Column 1</q-grid-column>
   <q-grid-column style="padding: 0.5rem; background-color: #888; text-align: center">Column 2</q-grid-column>
   <q-grid-column style="padding: 0.5rem; background-color: #aaa; text-align: center">Column 3</q-grid-column>
@@ -47,7 +51,7 @@ Media query breakpoints for the container are set at:
 **Example**
 
 ```vue
-<q-grid-container  format="1/1/1">
+<q-grid-container format="1/1/1">
   <q-grid-column>Column 1</q-grid-column>
   <q-grid-column>Column 2</q-grid-column>
   <q-grid-column>Column 3</q-grid-column>
@@ -56,7 +60,7 @@ Media query breakpoints for the container are set at:
 
 ### Three even columns - cols
 
-Another way to achieve the above is to specify `cols` instead of `format`
+Another way to achieve the above is to specify `cols` instead of `format`. Cols can be any numeric value, but should not be extended beyond 12
 
 <q-grid-container :cols="3">
   <q-grid-column style="padding: 0.5rem; background-color: #aaa; text-align: center">Column 1</q-grid-column>
@@ -74,6 +78,45 @@ Another way to achieve the above is to specify `cols` instead of `format`
 </q-grid-container>
 ```
 
+### 1/2/1 format
+
+A big column surrounded by two smaller ones. Useful to make content stand out or reduce the size of the normal container.
+
+<q-grid-container format="1/2/1">
+  <q-grid-column style="padding: 0.5rem; background-color: #aaa; text-align: center">Column 1</q-grid-column>
+  <q-grid-column style="padding: 0.5rem; background-color: #888; text-align: center">Column 2</q-grid-column>
+  <q-grid-column style="padding: 0.5rem; background-color: #aaa; text-align: center">Column 3</q-grid-column>
+</q-grid-container>
+
+**Example**
+
+```vue
+<q-grid-container format="1/2/1">
+  <q-grid-column>Column 1</q-grid-column>
+  <q-grid-column>Column 2</q-grid-column>
+  <q-grid-column>Column 3</q-grid-column>
+</q-grid-container>
+```
+
+### 2/1/2 format
+
+A small column surrounded by two bigger ones. Useful in case you'd like to make two separate columns stand out
+
+<q-grid-container format="2/1/2">
+  <q-grid-column style="padding: 0.5rem; background-color: #aaa; text-align: center">Column 1</q-grid-column>
+  <q-grid-column style="padding: 0.5rem; background-color: #888; text-align: center">Column 2</q-grid-column>
+  <q-grid-column style="padding: 0.5rem; background-color: #aaa; text-align: center">Column 3</q-grid-column>
+</q-grid-container>
+
+**Example**
+
+```vue
+<q-grid-container format="2/1/2">
+  <q-grid-column>Column 1</q-grid-column>
+  <q-grid-column>Column 2</q-grid-column>
+  <q-grid-column>Column 3</q-grid-column>
+</q-grid-container>
+```
 
 ### Fluid container
 
