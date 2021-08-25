@@ -1,15 +1,12 @@
 <script setup>
 import QAccordion from '../../components/UI/Accordion/QAccordion.vue'
 import QAccordionItem from '../../components/UI/Accordion/QAccordionItem.vue'
-import QThemeButton from '../../components/UI/Theme/QThemeButton.vue'
 </script>
 
 <style>
 @import '../../.vitepress/theme/main.css'
 </style>
 
-
-<QThemeButton style="float: right;" />
 
 # QAccordion component
 
