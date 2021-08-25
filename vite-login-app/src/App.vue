@@ -31,8 +31,8 @@
 </template>
 
 <script>
-import QNavbar from "./components/UI/QNavbar.vue";
-import QSidebar from "./components/UI/QSidebar.vue";
+import QNavbar from "./components/UI/Navigation/QNavbar.vue";
+import QSidebar from "./components/UI/Navigation/QSidebar.vue";
 import QAlert from "./components/Layout/Cards/QAlert.vue";
 
 import { mapGetters, mapActions } from "vuex";
