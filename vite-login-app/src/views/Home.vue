@@ -1,9 +1,15 @@
 <template>
   <div id="home">
     <q-flex-container :fluid="true">
-      <q-flex-column :cols="4">Test</q-flex-column>
-      <q-flex-column :cols="4">Test</q-flex-column>
-      <q-flex-column :cols="4">Test</q-flex-column>
+      <q-flex-column></q-flex-column>
+      <q-flex-column
+        style="background-color: red"
+        :smCols="12"
+        :mdCols="2"
+        :lgCols="8"
+        :cols="4"
+        >Test</q-flex-column
+      ><q-flex-column></q-flex-column>
     </q-flex-container>
     <!-- <q-hero
       :heading="homeHero.heading"
