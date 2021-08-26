@@ -317,7 +317,7 @@ export default {
 }
 
 /* xl */
-@media (max-width: 1400px) and (min-width: 1200px) {
+@media (min-width: 1200px) {
   .q-flex-col-xl-1 {
     width: 8.33%;
   }

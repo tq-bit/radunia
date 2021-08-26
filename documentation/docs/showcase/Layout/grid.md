@@ -30,13 +30,19 @@ import QGridColumn from '../../components/Layout/Grid/QGridColumn.vue'
 
 Containers are responsive. Their width is relative to their respective parent element.
 
-Media query breakpoints for the container are set at:
+<q-grid-container format="1">
+  <q-grid-column style="padding: 0.5rem; background-color: #aaa; text-align: center">Column 1</q-grid-column>
+  <q-grid-column style="padding: 0.5rem; background-color: #888; text-align: center">Column 2</q-grid-column>
+  <q-grid-column style="padding: 0.5rem; background-color: #aaa; text-align: center">Column 3</q-grid-column>
+</q-grid-container>
 
-- default width: 95%
-- width > 768px: 80%
-- width > 992px: 70%
-- width > 1200px: 60%
-- width > 1400px: 50%
+```vue
+<q-grid-container format="1">
+  <q-grid-column >Column 1</q-grid-column>
+  <q-grid-column >Column 2</q-grid-column>
+  <q-grid-column >Column 3</q-grid-column>
+</q-grid-container>
+```
 
 ### Three even columns - format
 
