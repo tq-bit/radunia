@@ -1,6 +1,6 @@
 <template>
   <div id="register" class="q-mt-5">
-    <q-flex-container :fluid="true">
+    <q-flex-container>
       <q-flex-column></q-flex-column>
       <q-flex-column :cols="4" :xlCols="6" :lgCols="6" :mdCols="8" :smCols="12">
         <q-card title="Sign up for a new account">
