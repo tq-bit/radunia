@@ -1,48 +1,10 @@
 <template>
-  <div
-    id="home"
-    style="
-      width: 50vw;
-      margin: auto;
-      padding-top: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    "
-  >
-    <q-accordion>
-      <q-accordion-item :expanded="true" title="This is a header" icon="❮" :baseRotation="0" :targetRotation="-90">
-        <p>
-          At vero eos et accusamus et iusto odio dignissimos ducimus qui
-          blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
-          et quas molestias excepturi sint occaecati cupiditate non provident,
-          similique sunt in culpa qui officia deserunt mollitia animi, id est
-          asperiores repellat.
-        </p> </q-accordion-item
-      ><q-accordion-item title="This is another header">
-        <p>
-          At vero eos et accusamus et iusto odio dignissimos ducimus qui
-          blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
-          et quas molestias excepturi sint occaecati cupiditate non provident,
-          similique sunt in culpa qui officia deserunt mollitia animi, id est
-          laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita
-          distinctio. Nam libero tempore, cum soluta nobis est eligendi optio
-          asperiores repellat.
-        </p> </q-accordion-item
-      ><q-accordion-item :rounded-bottom="true" title="This is a third header">
-        <p>
-          laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita
-          distinctio. Nam libero tempore, cum soluta nobis est eligendi optio
-          cumque nihil impedit quo minus id quod maxime placeat facere possimus,
-          omnis voluptas assumenda est, omnis dolor repellendus. Temporibus
-          autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe
-          eveniet ut et voluptates repudiandae sint et molestiae non recusandae.
-          Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis
-          voluptatibus maiores alias consequatur aut perferendis doloribus
-          asperiores repellat.
-        </p>
-      </q-accordion-item>
-    </q-accordion>
+  <div id="home">
+    <q-flex-container :fluid="true">
+      <q-flex-column :cols="4">Test</q-flex-column>
+      <q-flex-column :cols="4">Test</q-flex-column>
+      <q-flex-column :cols="4">Test</q-flex-column>
+    </q-flex-container>
     <!-- <q-hero
       :heading="homeHero.heading"
       :text="homeHero.text"
@@ -73,6 +35,8 @@ import QHero from "../components/UI/QHero.vue";
 import QGridContainer from "../components/Layout/Grid/QGridContainer.vue";
 import QPaperContainer from "../components/Layout/Board/QPaperContainer.vue";
 import QCard from "../components/Layout/Cards/QCard.vue";
+import QFlexContainer from "../components/Layout/Flex/QFlexContainer.vue";
+import QFlexColumn from "../components/Layout/Flex/QFlexColumn.vue";
 
 export default {
   components: {
@@ -82,6 +46,8 @@ export default {
     QGridContainer,
     QPaperContainer,
     QCard,
+    QFlexContainer,
+    QFlexColumn,
   },
   data() {
     return {
