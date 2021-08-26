@@ -5,7 +5,7 @@
       <q-flex-column
         style="background-color: red"
         :smCols="12"
-        :mdCols="2"
+        :mdCols="10"
         :lgCols="8"
         :cols="4"
         >Test</q-flex-column

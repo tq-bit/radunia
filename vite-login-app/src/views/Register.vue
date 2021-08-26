@@ -1,55 +1,60 @@
 <template>
   <div id="register" class="q-mt-5">
-    <q-snip-container>
-      <q-card title="Sign up for a new account">
-        <template v-slot:card-body>
-          <form @submit.prevent="handleLogin">
-            <input-group>
-              <!-- Input for username -->
-              <base-input
-                minlength="6"
-                type="text"
-                label="Username"
-                v-model="formRegister.username"
-                required
-              ></base-input>
-              <!-- Input for username -->
-              <base-input
-                type="email"
-                label="Email adress"
-                v-model="formRegister.email"
-                required
-              ></base-input>
-              <base-input
-                minlength="6"
-                :type="settings.cleartextPassword ? 'text' : 'password'"
-                label="Password"
-                v-model="formRegister.password"
-                required
-              ></base-input>
-            </input-group>
-            <base-button
-              :loading="settings.loading"
-              class="q-button-base q-form-input-button"
-              label="Register"
-            ></base-button>
-            <base-button
-              class="q-button-base"
-              variant="link"
-              label="Already have an account? Log in"
-              @click.prevent="$router.push({ path: '/login' })"
-            ></base-button>
-          </form>
-        </template>
+    <q-flex-container :fluid="true">
+      <q-flex-column></q-flex-column>
+      <q-flex-column :cols="4" :xlCols="6" :lgCols="6" :mdCols="8" :smCols="12">
+        <q-card title="Sign up for a new account">
+          <template v-slot:card-body>
+            <form @submit.prevent="handleLogin">
+              <input-group>
+                <!-- Input for username -->
+                <base-input
+                  minlength="6"
+                  type="text"
+                  label="Username"
+                  v-model="formRegister.username"
+                  required
+                ></base-input>
+                <!-- Input for username -->
+                <base-input
+                  type="email"
+                  label="Email adress"
+                  v-model="formRegister.email"
+                  required
+                ></base-input>
+                <base-input
+                  minlength="6"
+                  :type="settings.cleartextPassword ? 'text' : 'password'"
+                  label="Password"
+                  v-model="formRegister.password"
+                  required
+                ></base-input>
+              </input-group>
+              <base-button
+                :loading="settings.loading"
+                class="q-button-base q-form-input-button"
+                label="Register"
+              ></base-button>
+              <base-button
+                class="q-button-base"
+                variant="link"
+                label="Already have an account? Log in"
+                @click.prevent="$router.push({ path: '/login' })"
+              ></base-button>
+            </form>
+          </template>
 
-        <template v-slot:card-footer> </template>
-      </q-card>
-    </q-snip-container>
+          <template v-slot:card-footer> </template>
+        </q-card>
+      </q-flex-column>
+      <q-flex-column></q-flex-column>
+    </q-flex-container>
   </div>
 </template>
 
 <script>
-import QSnipContainer from "../components/Layout/Board/QSnipContainer.vue";
+import QFlexContainer from "../components/Layout/Flex/QFlexContainer.vue";
+import QFlexColumn from "../components/Layout/Flex/QFlexColumn.vue";
 import QCard from "../components/Layout/Cards/QCard.vue";
 import BaseInput from "../components/Form/BaseInput.vue";
 import BaseButton from "../components/Form/BaseButton.vue";
@@ -59,7 +64,8 @@ import { mapActions } from "vuex";
 
 export default {
   components: {
-    QSnipContainer,
+    QFlexContainer,
+    QFlexColumn,
     QCard,
     BaseInput,
     BaseButton,

@@ -1,8 +1,7 @@
 <template>
   <div
-    v-if="hasSizedColumns"
-    class="q-flex-col"
     :class="{
+      'q-flex-col': hasSizedColumns,
       'q-flex-col-auto': hasNoColumns,
 
       'q-flex-col-1': cols === 1,
@@ -78,6 +77,7 @@
 <script>
 export default {
   computed: {
+    // Used to determine whether to apply auto sizing
     hasNoColumns() {
       return (
         !this.cols &&
@@ -87,6 +87,8 @@ export default {
         !this.xlCols
       );
     },
+
+    // Used to determine whether to apply padding
     hasSizedColumns() {
       return (
         (this.cols && this.cols > 0) ||
@@ -235,7 +237,7 @@ export default {
 }
 
 /* md */
-@media (max-width: 992px) and (min-width: 768px)  {
+@media (max-width: 992px) and (min-width: 768px) {
   .q-flex-col-md-1 {
     width: 8.33%;
   }
