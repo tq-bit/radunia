@@ -1,17 +1,7 @@
 <template>
   <div id="home">
-    <q-flex-container :fluid="true">
-      <q-flex-column></q-flex-column>
-      <q-flex-column
-        style="background-color: red"
-        :smCols="12"
-        :mdCols="10"
-        :lgCols="8"
-        :cols="4"
-        >Test</q-flex-column
-      ><q-flex-column></q-flex-column>
-    </q-flex-container>
-    <!-- <q-hero
+
+    <q-hero
       :heading="homeHero.heading"
       :text="homeHero.text"
       :actions="homeActions"
@@ -29,7 +19,7 @@
         </template>
       </q-card>
     </q-grid-container>
-    <q-paper-container :content="homeContentDescription"> </q-paper-container> -->
+    <q-paper-container :content="homeContentDescription"> </q-paper-container>
   </div>
 </template>
 

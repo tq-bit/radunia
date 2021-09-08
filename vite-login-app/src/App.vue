@@ -180,6 +180,11 @@ body {
   background-color: var(--background-color-primary);
 }
 
+ul {
+  list-style: none;
+
+}
+
 li {
   color: var(--text-color-primary);
   padding: var(--gap-xs) var(--gap-md);
